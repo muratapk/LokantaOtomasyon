@@ -30,6 +30,7 @@ namespace LokantaOtomasyon.Controllers
             {
                 _context.Masalars.Add(gelen);
                 _context.SaveChanges();
+                TempData["Success"] = "Kayıt Başarılı Şekilde Ekledi";
                 return RedirectToAction(nameof(Index));
             }
             return View();
@@ -38,7 +39,9 @@ namespace LokantaOtomasyon.Controllers
         {
             if(Id==null)
             {
+                TempData["Error"] = "Veri Hatası Oluştu";
                 return NotFound();
+                
             }
             
             var bul = _context.Masalars.Find(Id);
@@ -49,12 +52,14 @@ namespace LokantaOtomasyon.Controllers
         {
             if(gelen.Masa_Id==null)
             {
+                TempData["Error"] = "Veri Hatası Oluştu";
                 return NotFound();
             }
             if(ModelState.IsValid)
             {
                 _context.Masalars.Update(gelen);
                 _context.SaveChanges();
+                TempData["Success"] = "Kayıt Başarılı Şekilde Düzelti";
                 return RedirectToAction(nameof(Index));
             }
             return View();
@@ -63,6 +68,7 @@ namespace LokantaOtomasyon.Controllers
         {
             if (Id == null)
             {
+                TempData["Error"] = "Veri Hatası Oluştu";
                 return NotFound();
             }
             var bul = _context.Masalars.Find(Id);
@@ -73,6 +79,7 @@ namespace LokantaOtomasyon.Controllers
         {
             _context.Masalars.Remove(gelen);
             _context.SaveChanges();
+            TempData["Success"] = "Kayıt Başarılı Şekilde Silindi";
             return RedirectToAction(nameof(Index));
         }
     }
