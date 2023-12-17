@@ -15,25 +15,26 @@ namespace DataAccessLayer.Repository
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly ApplicationDbContext _context;
-
+        internal DbSet<T> dbSet;
         public GenericRepository(ApplicationDbContext context)
         {
             _context = context;
+            dbSet=_context.Set<T>();
         }
 
         public void Add(T entity)
         {
-            _context.Add(entity);
+            dbSet.Add(entity);  
         }
 
         public void Delete(T entity)
         {
-            _context.Remove(entity);
+            dbSet.Remove(entity);
         }
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
-            IQueryable<T> sorgu = _context.Set<T>();
+            IQueryable<T> sorgu = dbSet;
             if (filter != null)
             {
                 sorgu = sorgu.Where(filter);
@@ -51,7 +52,7 @@ namespace DataAccessLayer.Repository
 
         public T GetId(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
-            IQueryable<T> sorgu = _context.Set<T>();
+            IQueryable<T> sorgu = dbSet;
             if (filter != null)
             {
                 sorgu = sorgu.Where(filter);
@@ -67,14 +68,11 @@ namespace DataAccessLayer.Repository
             return sorgu.FirstOrDefault();
         }
 
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
+        
 
         public void Update(T entity)
         {
-           _context.Update(entity);
+            dbSet.Update(entity);
         }
     }
 }

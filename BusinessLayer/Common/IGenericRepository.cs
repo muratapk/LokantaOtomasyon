@@ -17,6 +17,6 @@ namespace BusinessLayer.Common
         //void GetId(int id);
         IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null);
         T GetId(Expression<Func<T, bool>> filter, string? includeProperties = null);
-        void Save();
+        
     }
 }

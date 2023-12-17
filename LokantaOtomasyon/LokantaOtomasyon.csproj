@@ -37,4 +37,29 @@
     <None Include="wwwroot\Admin\.github\workflows\lint.yml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Roller\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Roller\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Roller\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Roller\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Roller\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Roller\Delete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Roller\Edit.cshtml" />
+  </ItemGroup>
+
 </Project>
