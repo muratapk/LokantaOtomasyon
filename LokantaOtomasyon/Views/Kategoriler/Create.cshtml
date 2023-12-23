@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Entities.Roller
+﻿@model EntityLayer.Entities.Kategoriler
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
@@ -14,13 +14,13 @@
         <div class="card-body">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Rol Ad</label>
-                <input type="text" asp-for="@Model.Rol_Ad" class="form-control" id="exampleInputEmail1" placeholder="Masa Adını Girin">
-                <span asp-validation-for="@Model.Rol_Ad" class="text-danger"></span>
+                <label for="exampleInputEmail1">Kategori Adı</label>
+                <input type="text" asp-for="@Model.Kategori_Ad" class="form-control" id="exampleInputEmail1" placeholder="Masa Adını Girin">
+                <span asp-validation-for="@Model.Kategori_Ad" class="text-danger"></span>
             </div>
           
             
-          
+            
         </div>
         <!-- /.card-body -->
 

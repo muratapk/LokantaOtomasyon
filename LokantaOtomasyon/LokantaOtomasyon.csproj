@@ -38,6 +38,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Kategoriler\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Update="Views\Roller\Index.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -49,6 +53,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Kategoriler\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Kategoriler\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Kategoriler\Edit.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Roller\Create.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Roller\Delete.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Roller\Edit.cshtml" />
@@ -60,6 +67,18 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Roller\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Kategoriler\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Kategoriler\Delete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Kategoriler\Edit.cshtml" />
   </ItemGroup>
 
 </Project>

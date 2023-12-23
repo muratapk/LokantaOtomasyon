@@ -10,7 +10,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IKategoriler, KategoryRepository>();
-
+builder.Services.AddScoped<IRollerRepository, RollerRepository>();
+builder.Services.AddScoped<IPersonellerRepository, PersonellerRepository>();
+builder.Services.AddScoped<IServislerRepository, ServislerRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

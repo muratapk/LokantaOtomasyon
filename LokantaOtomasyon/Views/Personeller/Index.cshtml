@@ -1,4 +1,4 @@
-﻿@model List<EntityLayer.Entities.Kategoriler>
+﻿@model IEnumerable<EntityLayer.Entities.Personeller>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
@@ -8,17 +8,19 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Kategori Listesi</h3>
+        <h3 class="card-title">Rol Listesi</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <a asp-action="Create" asp-controller="Kategoriler" class="btn btn-primary">Yeni</a>
+        <a asp-action="Create" asp-controller="Personeller" class="btn btn-primary">Yeni</a>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>Kategoriler</th>
-                   
+                    <th>Adı Soyadı</th>
+                     <th>Masa Id</th>
+                    <th>Masa Id</th>
+                    <th>Masa Id</th>
                     <th style="width: 40px">Düzelt</th>
                     <th style="width: 40px">Silme</th>
                 </tr>
@@ -31,10 +33,11 @@
             {
                     <tr>
                         <td>@i.</td>
-                        <td>@item.Kategori_Ad</td>
-                        
-                        <td><a class="btn btn-success" asp-action="Edit" asp-controller="Kategoriler" asp-route-Id="@item.Kategori_Id">Düzelt</a></td>
-                        <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Kategoriler" asp-route-Id="@item.Kategori_Id">Silme</a></td>
+                        <td>@item.AdSoyad</td>
+                        <td>@item.Masa_Id</td>
+                        <td>@item.Rol_Id</td>
+                        <td><a class="btn btn-success" asp-action="Edit" asp-controller="Personeller" asp-route-Id="@item.Personel_Id">Düzelt</a></td>
+                        <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Personeller" asp-route-Id="@item.Personel_Id">Silme</a></td>
                     </tr>
 
                     i++;

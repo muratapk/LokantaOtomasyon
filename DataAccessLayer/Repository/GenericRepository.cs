@@ -39,7 +39,7 @@ namespace DataAccessLayer.Repository
             {
                 sorgu = sorgu.Where(filter);
             }
-            if (string.IsNullOrEmpty(includeProperties))
+            if (!string.IsNullOrEmpty(includeProperties))
             {
                 foreach (var includeprop in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
@@ -57,7 +57,7 @@ namespace DataAccessLayer.Repository
             {
                 sorgu = sorgu.Where(filter);
             }
-            if (string.IsNullOrEmpty(includeProperties))
+            if (!string.IsNullOrEmpty(includeProperties))
             {
                 foreach (var includeprop in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {

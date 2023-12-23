@@ -1,31 +1,28 @@
 ﻿
+
+
+@model EntityLayer.Entities.Kategoriler
 @{
     ViewData["Title"] = "Delete";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
-@model EntityLayer.Entities.Roller
-@{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_adminLayout.cshtml";
-}
-
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Rol Silme</h3>
+        <h3 class="card-title">Kategori Sil</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
     <form method="post" action="Create">
         <div class="card-body">
-            <input type="hidden" asp-for="@Model.Rol_Id" />
+            <input type="hidden" asp-for="@Model.Kategori_Id" />
             <div class="form-group">
-                <label for="exampleInputEmail1">Rol Adı</label>
-                <input type="text" disabled asp-for="@Model.Rol_Ad" class="form-control" id="exampleInputEmail1" placeholder="Masa Adını Girin">
+                <label for="exampleInputEmail1">Kategori Adı</label>
+                <input type="text" disabled asp-for="@Model.Kategori_Ad" class="form-control" id="exampleInputEmail1" placeholder="Masa Adını Girin">
             </div>
 
 
-           
+            
         </div>
         <!-- /.card-body -->
 

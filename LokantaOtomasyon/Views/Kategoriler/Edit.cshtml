@@ -1,25 +1,25 @@
-﻿@model EntityLayer.Entities.Roller
+﻿@model EntityLayer.Entities.Kategoriler
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Düzelt";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Roller Düzelt</h3>
+        <h3 class="card-title">Kategori Düzelt</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
     <form method="post" action="Create">
         <div class="card-body">
-            <input type="hidden" asp-for="@Model.Rol_Id"/>
+            <input type="hidden" asp-for="@Model.Kategori_Id"/>
             <div class="form-group">
-                <label for="exampleInputEmail1">Rol Adı</label>
-                <input type="text" asp-for="@Model.Rol_Ad" class="form-control" id="exampleInputEmail1" placeholder="Masa Adını Girin">
+                <label for="exampleInputEmail1">Kategori Adı</label>
+                <input type="text" asp-for="@Model.Kategori_Ad" class="form-control" id="exampleInputEmail1" placeholder="Masa Adını Girin">
             </div>
 
 
-           
+            
         </div>
         <!-- /.card-body -->
 

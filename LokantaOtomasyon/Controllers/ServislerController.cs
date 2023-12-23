@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LokantaOtomasyon.Controllers
 {
-    public class KategorilerController : Controller
+    public class ServislerController : Controller
     {
-       private readonly IKategoriler _repository;
+        private readonly IServislerRepository _repository;
 
-        public KategorilerController(IKategoriler repository)
+        public ServislerController(IServislerRepository repository)
         {
             _repository = repository;
         }
@@ -24,7 +24,7 @@ namespace LokantaOtomasyon.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Kategoriler gelen)
+        public IActionResult Create(Servisler gelen)
         {
             _repository.Add(gelen);
             _repository.Save();
@@ -33,11 +33,11 @@ namespace LokantaOtomasyon.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var value = _repository.GetId(u => u.Kategori_Id == id);
+            var value = _repository.GetId(u => u.Servis_Id == id);
             return View(value);
         }
         [HttpPost]
-        public IActionResult Edit(Kategoriler gelen)
+        public IActionResult Edit(Servisler gelen)
         {
             _repository.Update(gelen);
             _repository.Save();
@@ -46,16 +46,17 @@ namespace LokantaOtomasyon.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            _repository.GetId(u => u.Kategori_Id == id);
+            _repository.GetId(u => u.Servis_Id == id);
+
             return View();
         }
         [HttpPost]
-        public IActionResult Delete(Kategoriler gelen)
+        public IActionResult Delete(Servisler gelen)
         {
             _repository.Delete(gelen);
             _repository.Save();
             return RedirectToAction(nameof(Index));
         }
-
     }
 }
+
