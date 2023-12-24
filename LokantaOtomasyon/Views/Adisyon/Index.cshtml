@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EntityLayer.Entities.Adisyon>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Adisyon</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <a asp-action="Create" asp-controller="Adisyon" class="btn btn-primary">Yeni</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Siparisler</th>
+                     <th>Servisler</th>
+                    <th>Adet</th>
+                  
+                    <th style="width: 40px">Düzelt</th>
+                    <th style="width: 40px">Silme</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 1;
+                }
+            @foreach(var item in Model)
+            {
+                    <tr>
+                        <td>@i.</td>
+                        <td>@item.Servis_Id</td>
+                        <td>@item.Siparis_Id</td>
+                        <td>@item.Adet</td>
+                       
+                        <td><a class="btn btn-success" asp-action="Edit" asp-controller="Adisyon" asp-route-Id="@item.Adisyon_Id">Düzelt</a></td>
+                        <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Adisyon" asp-route-Id="@item.Adisyon_Id">Silme</a></td>
+                    </tr>
+
+                    i++;
+
+                }
+               
+
+              
+               
+               
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

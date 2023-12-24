@@ -13,6 +13,9 @@ builder.Services.AddScoped<IKategoriler, KategoryRepository>();
 builder.Services.AddScoped<IRollerRepository, RollerRepository>();
 builder.Services.AddScoped<IPersonellerRepository, PersonellerRepository>();
 builder.Services.AddScoped<IServislerRepository, ServislerRepository>();
+builder.Services.AddScoped<ISiparislerRepository, SiparislerRepository>();
+builder.Services.AddScoped<IAdisyonRepository, AdisyonRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

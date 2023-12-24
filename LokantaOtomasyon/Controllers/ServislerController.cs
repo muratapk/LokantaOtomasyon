@@ -1,17 +1,21 @@
 ﻿using BusinessLayer.Common;
 using EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LokantaOtomasyon.Controllers
 {
     public class ServislerController : Controller
     {
         private readonly IServislerRepository _repository;
-
-        public ServislerController(IServislerRepository repository)
+        private readonly IWebHostEnvironment _webHostEnviroment;
+        public ServislerController(IServislerRepository repository,IWebHostEnvironment webHostEnvironment)
         {
             _repository = repository;
+            _webHostEnviroment = webHostEnvironment;
         }
+
+       
 
         public IActionResult Index()
         {
@@ -24,8 +28,22 @@ namespace LokantaOtomasyon.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Servisler gelen)
+        public IActionResult Create(Servisler gelen,IFormFile Image)
         {
+            if (Image != null)
+            {
+                string filename = Guid.NewGuid().ToString()+Path.GetExtension(Image.FileName);
+                string ImagePath = Path.Combine(_webHostEnviroment.WebRootPath, @"Yemek_Resim");
+                using (var fileStream=new FileStream(Path.Combine(ImagePath,filename),FileMode.Create))
+                {
+                    Image.CopyTo(fileStream);
+                    gelen.Servis_Image = filename;
+                }
+            }
+            else
+            {
+                gelen.Servis_Image = "image-not-found.png";
+            }
             _repository.Add(gelen);
             _repository.Save();
             return RedirectToAction(nameof(Index));
@@ -37,7 +55,7 @@ namespace LokantaOtomasyon.Controllers
             return View(value);
         }
         [HttpPost]
-        public IActionResult Edit(Servisler gelen)
+        public IActionResult Edit(Servisler gelen,IFormFile Image)
         {
             _repository.Update(gelen);
             _repository.Save();

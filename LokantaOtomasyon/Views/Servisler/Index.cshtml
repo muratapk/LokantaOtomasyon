@@ -12,7 +12,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <a asp-action="Create" asp-controller="Personeller" class="btn btn-primary">Yeni</a>
+        <a asp-action="Create" asp-controller="Servisler" class="btn btn-primary">Yeni</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -36,7 +36,10 @@
                         <td>@item.Servis_Ad</td>
                         <td>@item.Kategori_Id</td>
                         <td>@item.Fiyat</td>
-                        <td>@item.Servis_Image</td>
+                        <td>@item.Servis_Image
+                        <img src="~/Yemek_Resim/+@item.Servis_Image" height="100px" width="100px"/>
+                 
+                        </td>
                         <td><a class="btn btn-success" asp-action="Edit" asp-controller="Servisler" asp-route-Id="@item.Servis_Id">Düzelt</a></td>
                         <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Servisler" asp-route-Id="@item.Servis_Id">Silme</a></td>
                     </tr>

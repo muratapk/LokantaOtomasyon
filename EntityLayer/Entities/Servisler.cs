@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace EntityLayer.Entities
 {
@@ -18,6 +19,8 @@ namespace EntityLayer.Entities
         public virtual Kategoriler? Kategoriler { get; set; }
         public double? Fiyat { get; set; }
         public string? Servis_Image { get; set; }
+        [NotMapped]
+        public IFormFile? Image { get; set; }
         public virtual List<Adisyon>? Adisyons { get; set; }
     }
 }
