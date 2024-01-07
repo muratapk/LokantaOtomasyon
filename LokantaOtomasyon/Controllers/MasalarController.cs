@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Data;
 using EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LokantaOtomasyon.Controllers
 {
@@ -82,5 +83,37 @@ namespace LokantaOtomasyon.Controllers
             TempData["Success"] = "Kayıt Başarılı Şekilde Silindi";
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
+        public JsonResult MasaSec(int id,bool durum)
+        {
+            bool success = false;
+            var bul = _context.Masalars.Find(id);
+            if(bul != null)
+            {
+                if(durum==false)
+                {
+                    bul.Masa_Durum = true;
+                    
+                }
+                else
+                {
+                    bul.Masa_Durum = false;
+                }
+                _context.Masalars.Update(bul);
+                _context.SaveChanges();
+                success = true;
+                return new JsonResult(success);
+
+            }
+            return new JsonResult(success);
+
+        }
+        [HttpGet]
+        public async Task<IActionResult> MasaListem()
+        {
+            var masalar = await _context.Masalars.ToListAsync();
+            return View(masalar);
+        }
+
     }
 }

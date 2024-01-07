@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccessLayer.Migrations
 {
-    public partial class mig1 : Migration
+    public partial class yeni : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

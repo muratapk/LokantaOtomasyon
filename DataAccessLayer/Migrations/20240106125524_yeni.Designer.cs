@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231216200410_mig1")]
-    partial class mig1
+    [Migration("20240106125524_yeni")]
+    partial class yeni
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

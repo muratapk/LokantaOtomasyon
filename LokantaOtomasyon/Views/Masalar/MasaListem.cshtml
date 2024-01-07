@@ -1,0 +1,68 @@
+﻿@model List<EntityLayer.Entities.Masalar>
+@{
+    ViewData["Title"] = "MasaListem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>MasaListem</h1>
+
+    <div class="row">
+      
+        @{
+            string arkalan;
+        }
+        @foreach (var item in Model)
+        {
+        //arkalan = item.Masa_Durum ? "bg-success" : "bg-danger";
+        @if (item.Masa_Durum == false)
+            {
+                arkalan = "bg-danger";
+                
+            }
+            else
+            {
+                arkalan = "bg-warning";
+            }
+        <div class="col-md-3 m-5">
+                    <div class="card @arkalan" data-id="@item.Masa_Id-@item.Masa_Durum" style="width: 18rem; height:18rem">
+                        
+                        <div class="card-body">
+                            <h1 class="card-title">@item.Masa_Ad</h1>
+
+
+                        </div>
+                    </div>
+         </div>
+         }
+
+
+        </div>
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   
+        <script>
+            $(document).ready(function () {
+                $(".card").click(function () {
+                              
+                        var deger = $(this).data("id");
+                    let bol = deger.split("-");
+                    id=bol[0];
+                    durum=bol[1];
+
+                    $.ajax({
+                        type:"Post",
+                        url:"/Masalar/MasaSec",
+                        data: {id:id,durum:durum},
+                        success: function (response) {
+                            alert(response);
+                        },
+                        error: function (response) {
+                            alert("Hata Oluştu");
+                        }
+                          });
+                    location.reload();
+                 });
+            });
+
+        </script>
